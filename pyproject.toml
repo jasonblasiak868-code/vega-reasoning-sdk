@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vega-reasoning-sdk"
+version = "0.1.0"
+description = "Lattice-5 reasoning: fidelity gate, forecasting over outcome distributions, capsule routing, model MRI, vitals, overseer and lattice prediction against recorded history."
+requires-python = ">=3.10"
+dependencies = ["vega-custody-sdk"]
+license = {file = "LICENSE"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
