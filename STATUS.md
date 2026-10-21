@@ -12,7 +12,7 @@
 - overseer
 - predict
 
-Tests: 91 tests in 4 files, all passing.
+Tests: 96 tests in 5 files, all passing.
 
 ## DESIGNED ONLY (not built)
 

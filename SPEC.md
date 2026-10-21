@@ -267,4 +267,4 @@ A third party can verify by running the test suite:
 ```bash
 PYTHONPATH=src:../vega-custody-sdk/src python -m unittest discover -s tests
 ```
-All 91 tests in 4 files must pass. Passing means the published reference implementation behaves as specified. Passing does NOT mean: production readiness, security audit completion, cryptographic expert review, frontier model quality, or any guarantee beyond what the tests demonstrate.
+All 96 tests in 5 files must pass. Passing means the published reference implementation behaves as specified. Passing does NOT mean: production readiness, security audit completion, cryptographic expert review, frontier model quality, or any guarantee beyond what the tests demonstrate.

@@ -24,8 +24,8 @@ def _column(vals):
 
 def vitals(rows, model, now_epoch=None, last_epoch=None):
     mine = [r for r in rows if r.get("model") == model]
-    fid = _column([r["combined_verified"] for r in mine if r.get("combined_verified") in (True, False)])
-    cor = _column([r["correct"] for r in mine if r.get("correct") in (True, False)])
+    fid = _column([r["combined_verified"] for r in mine if r.get("combined_verified") is True or r.get("combined_verified") is False])
+    cor = _column([r["correct"] for r in mine if r.get("correct") is True or r.get("correct") is False])
     lat = [r["latency_ms"] for r in mine if isinstance(r.get("latency_ms"), (int, float))]
     out = {"model": model, "records": len(mine), "fidelity": fid, "correctness": cor, "latency_ms": {"n": len(lat), "p50": _pct(lat, 0.5), "p95": _pct(lat, 0.95)}, "reasons": []}
     stale = now_epoch is not None and last_epoch is not None and now_epoch - last_epoch > STALE_SECONDS

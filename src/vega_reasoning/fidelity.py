@@ -14,7 +14,7 @@ CUSUM_H = 4.0
 
 def status(rows, task_class, min_n=MIN_N, bar=WILSON_BAR, k=CUSUM_K, h=CUSUM_H):
     """rows: records (apprentice role, with combined_verified True/False) in time order, already de-duplicated (ReasoningLog.history)."""
-    mine = [r for r in rows if r.get("task_class") == task_class and r.get("role") == "apprentice" and r.get("combined_verified") in (True, False)]
+    mine = [r for r in rows if r.get("task_class") == task_class and r.get("role") == "apprentice" and (r.get("combined_verified") is True or r.get("combined_verified") is False)]
     n = len(mine)
     succ = sum(1 for r in mine if r["combined_verified"])
     wl = wilson_lower(succ, n) if n else 0.0

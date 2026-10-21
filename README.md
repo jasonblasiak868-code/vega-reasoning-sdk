@@ -13,7 +13,7 @@ Lattice-5 reasoning: ALTAIR fidelity gate, AQUIRE forecasting over outcome distr
 | Version | 0.1.0 |
 | Python | >=3.10 |
 | Runtime dependency | vega-custody-sdk (layer 0) |
-| Tests | 91 tests in 4 files, all passing |
+| Tests | 96 tests in 5 files, all passing |
 | Status | All 9 modules BUILT and tested (STATUS.md) |
 | License | Source-available, Patent pending (U.S. provisional 64/178,949 and others) |
 

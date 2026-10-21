@@ -29,7 +29,7 @@ def bucket(d):
 
 def _outcome(r, outcome):
     v = r.get("correct") if outcome == "correct" else r.get("combined_verified")
-    return v if v in (True, False) else None
+    return v if v is True or v is False else None
 
 
 class Lattice:
@@ -101,10 +101,10 @@ def accuracy_report(rows):
     out = {}
     for c in sorted({r["task_class"] for r in rows}):
         mine = [r for r in rows if r["task_class"] == c]
-        frontier = [r for r in mine if r["role"] in ("frontier", "reference") and r.get("correct") in (True, False)]
+        frontier = [r for r in mine if r["role"] in ("frontier", "reference") and (r.get("correct") is True or r.get("correct") is False)]
         app = [r for r in mine if r["role"] == "apprentice"]
-        fid = [r["combined_verified"] for r in app if r.get("combined_verified") in (True, False)]
-        app_cor = [r for r in app if r.get("correct") in (True, False)]
+        fid = [r["combined_verified"] for r in app if r.get("combined_verified") is True or r.get("combined_verified") is False]
+        app_cor = [r for r in app if r.get("correct") is True or r.get("correct") is False]
         fq = {r["query_sha256"]: r["correct"] for r in frontier}
         paired = [(fq[r["query_sha256"]], r["correct"]) for r in app_cor if r["query_sha256"] in fq]
         both = sum(1 for f, a in paired if f and a)

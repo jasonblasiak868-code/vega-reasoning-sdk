@@ -18,7 +18,10 @@ class OverseerRefused(ValueError):
 def digest(candidate, build, test):
     if not callable(build) or not callable(test):
         raise OverseerRefused("build and test are functions")
-    cid = hashlib.sha256(json.dumps(candidate, sort_keys=True, default=repr).encode()).hexdigest()
+    try:
+        cid = hashlib.sha256(json.dumps(candidate, sort_keys=True, allow_nan=False).encode()).hexdigest()
+    except (TypeError, ValueError, RecursionError) as exc:                   # an object inside would be hashed by its memory address (different every run): refuse it instead
+        raise OverseerRefused("a candidate is plain data (text, numbers, lists, dicts)") from exc
     try:
         art = build(candidate)
     except Exception as exc:                                                    # a candidate that cannot be built is SICK, whatever the reason
