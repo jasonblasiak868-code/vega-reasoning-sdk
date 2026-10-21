@@ -2,6 +2,12 @@
 
 ![vega-reasoning-sdk](assets/tile.svg)
 
+<!-- vega-install-order -->
+> **Build order: 2/2. This kit needs 1 other Vega kit installed first.** Install them in this order, then this one:
+> 1/2 `vega-custody-sdk`  
+> 2/2 `vega-reasoning-sdk` (this kit)
+> Install each with `pip install --no-deps git+https://github.com/jasonblasiak868-code/<name>` in the order shown. Full steps: [INTEGRATION_GUIDE](https://github.com/jasonblasiak868-code/vega-umbrella-sdk/blob/main/INTEGRATION_GUIDE.md).
+
 Lattice-5 reasoning: ALTAIR fidelity gate, AQUIRE forecasting over outcome distributions, MoRNA capsule routing, Lyra (model MRI and difficulty governor), model vitals, the Overseer, and lattice prediction of accuracy from recorded history. This SDK owns the **reason** concern (layer 11): it forecasts how a model will do, routes to the cheapest capable lane, and refuses when the record does not support the claim.
 
 > **Licensing.** Source-available, not open source. Free for personal use; free for registered small businesses (under US$1M revenue and valuation); everyone else needs a commercial license (see LICENSE; for a commercial license write to jasonblasiak.ai.mail@gmail.com). Patent pending. Draft licence text, not yet reviewed by an attorney.
